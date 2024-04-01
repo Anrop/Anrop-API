@@ -1,21 +1,25 @@
-rails:
-  build: .
-  environment:
-    MYSQL_HOST: mysql
-    MYSQL_USERNAME: root
-    MYSQL_PASSWORD: root
-    MYSQL_DATABASE: anrop
-    MYSQL_TEST_DATABASE: anrop_test
-  links:
-    - mysql
-  ports:
-    - "3000:3000"
-  volumes:
-    - .:/anrop
-mysql:
-  image: mysql:5.6
-  environment:
-    MYSQL_ROOT_PASSWORD: root
-    MYSQL_DATABASE: anrop
-  ports:
-    - "3306:3306"
+version: '2'
+
+services:
+  rails:
+    build: .
+    image: anrop/anrop-api
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USERNAME: root
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: anrop
+      MYSQL_TEST_DATABASE: anrop_test
+    links:
+      - mysql
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/anrop
+  mysql:
+    image: mysql:5.5
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: anrop
+    ports:
+      - "3306:3306"
