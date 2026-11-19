@@ -1,4 +1,5 @@
 class Session
+  extend ActiveModel::Naming
   include ActiveModel::Serialization
 
   attr_accessor :username
