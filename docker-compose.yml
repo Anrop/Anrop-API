@@ -1,8 +1,10 @@
-version: '2'
-
 services:
   rails:
-    build: .
+    build:
+      context: .
+      platforms:
+        - linux/amd64
+        - linux/arm64
     image: anrop/anrop-api
     environment:
       MYSQL_HOST: mysql
@@ -17,7 +19,7 @@ services:
     volumes:
       - .:/anrop
   mysql:
-    image: mysql:5.5
+    image: mariadb:10.11.19
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: anrop

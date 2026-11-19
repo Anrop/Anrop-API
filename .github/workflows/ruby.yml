@@ -10,10 +10,10 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     services:
       mysql:
-        image: mysql:5.5
+        image: mariadb:10.11.19
         ports:
           - "3306:3306"
         env:
@@ -27,7 +27,7 @@ jobs:
       MYSQL_TEST_DATABASE: rails_test
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install Ruby and gems
         uses: ruby/setup-ruby@v1

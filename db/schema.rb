@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "admin_image", limit: 50, default: "", null: false
     t.string "admin_title", limit: 50, default: "", null: false
     t.string "admin_link", limit: 100, default: "reserved", null: false
-    t.boolean "admin_page", default: true, null: false, unsigned: true
+    t.boolean "admin_page", default: true, null: false
   end
 
   create_table "fusion7_admin_resetlog", primary_key: "reset_id", id: :integer, limit: 3, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -48,13 +48,13 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "article_subject", limit: 200, default: "", null: false
     t.text "article_snippet", null: false
     t.text "article_article", null: false
-    t.boolean "article_draft", default: false, null: false, unsigned: true
+    t.boolean "article_draft", default: false, null: false
     t.string "article_breaks", limit: 1, default: "", null: false
     t.integer "article_name", limit: 2, default: 1, null: false, unsigned: true
     t.integer "article_datestamp", default: 0, null: false, unsigned: true
     t.integer "article_reads", limit: 3, default: 0, unsigned: true
-    t.boolean "article_allow_comments", default: true, null: false, unsigned: true
-    t.boolean "article_allow_ratings", default: true, null: false, unsigned: true
+    t.boolean "article_allow_comments", default: true, null: false
+    t.boolean "article_allow_ratings", default: true, null: false
     t.index ["article_cat"], name: "article_cat"
     t.index ["article_datestamp"], name: "article_datestamp"
     t.index ["article_reads"], name: "article_reads"
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "fusion7_blacklist", primary_key: "blacklist_id", id: :integer, limit: 2, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "blacklist_user_id", limit: 3, default: 0, null: false, unsigned: true
     t.string "blacklist_ip", limit: 45, default: "", null: false
-    t.boolean "blacklist_ip_type", default: true, null: false, unsigned: true
+    t.boolean "blacklist_ip_type", default: true, null: false
     t.string "blacklist_email", limit: 100, default: "", null: false
     t.text "blacklist_reason", null: false
     t.integer "blacklist_datestamp", default: 0, null: false, unsigned: true
@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "fusion7_captcha", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "captcha_datestamp", default: 0, null: false, unsigned: true
     t.string "captcha_ip", limit: 45, default: "", null: false
-    t.boolean "captcha_ip_type", default: true, null: false, unsigned: true
+    t.boolean "captcha_ip_type", default: true, null: false
     t.string "captcha_encode", limit: 32, default: "", null: false
     t.string "captcha_string", limit: 15, default: "", null: false
     t.index ["captcha_datestamp"], name: "captcha_datestamp"
@@ -92,8 +92,8 @@ ActiveRecord::Schema.define(version: 0) do
     t.text "comment_message", null: false
     t.integer "comment_datestamp", default: 0, null: false, unsigned: true
     t.string "comment_ip", limit: 45, default: "", null: false
-    t.boolean "comment_ip_type", default: true, null: false, unsigned: true
-    t.boolean "comment_hidden", default: false, null: false, unsigned: true
+    t.boolean "comment_ip_type", default: true, null: false
+    t.boolean "comment_hidden", default: false, null: false
     t.index ["comment_datestamp"], name: "comment_datestamp"
   end
 
@@ -101,8 +101,8 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "page_title", limit: 200, default: "", null: false
     t.integer "page_access", limit: 1, default: 0, null: false, unsigned: true
     t.text "page_content", null: false
-    t.boolean "page_allow_comments", default: false, null: false, unsigned: true
-    t.boolean "page_allow_ratings", default: false, null: false, unsigned: true
+    t.boolean "page_allow_comments", default: false, null: false
+    t.boolean "page_allow_ratings", default: false, null: false
   end
 
   create_table "fusion7_download_cats", primary_key: "download_cat_id", id: :integer, limit: 3, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -130,8 +130,8 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "download_filesize", limit: 20, default: "", null: false
     t.integer "download_datestamp", default: 0, null: false, unsigned: true
     t.integer "download_count", limit: 2, default: 0, null: false, unsigned: true
-    t.boolean "download_allow_comments", default: false, null: false, unsigned: true
-    t.boolean "download_allow_ratings", default: false, null: false, unsigned: true
+    t.boolean "download_allow_comments", default: false, null: false
+    t.boolean "download_allow_ratings", default: false, null: false
     t.index ["download_datestamp"], name: "download_datestamp"
   end
 
@@ -151,7 +151,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "error_page", limit: 200, null: false
     t.integer "error_user_level", limit: 2, null: false
     t.string "error_user_ip", limit: 45, default: "", null: false
-    t.boolean "error_user_ip_type", default: true, null: false, unsigned: true
+    t.boolean "error_user_ip_type", default: true, null: false
     t.boolean "error_status", default: false, null: false
     t.integer "error_timestamp", null: false
   end
@@ -169,7 +169,7 @@ ActiveRecord::Schema.define(version: 0) do
 
   create_table "fusion7_flood_control", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "flood_ip", limit: 45, default: "", null: false
-    t.boolean "flood_ip_type", default: true, null: false, unsigned: true
+    t.boolean "flood_ip_type", default: true, null: false
     t.integer "flood_timestamp", default: 0, null: false, unsigned: true
     t.index ["flood_timestamp"], name: "flood_timestamp"
   end
@@ -195,7 +195,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "thread_id", limit: 3, default: 0, null: false, unsigned: true
     t.integer "forum_vote_user_id", limit: 3, default: 0, null: false, unsigned: true
     t.string "forum_vote_user_ip", limit: 45, default: "", null: false
-    t.boolean "forum_vote_user_ip_type", default: true, null: false, unsigned: true
+    t.boolean "forum_vote_user_ip_type", default: true, null: false
     t.index ["thread_id", "forum_vote_user_id"], name: "thread_id"
   end
 
@@ -212,7 +212,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "rank_title", limit: 100, default: "", null: false
     t.string "rank_image", limit: 100, default: "", null: false
     t.integer "rank_posts", default: 0, null: false, unsigned: true
-    t.boolean "rank_type", default: false, null: false, unsigned: true
+    t.boolean "rank_type", default: false, null: false
     t.integer "rank_apply", limit: 2, default: 101, null: false, unsigned: true
   end
 
@@ -233,7 +233,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "forum_postcount", limit: 3, default: 0, null: false, unsigned: true
     t.integer "forum_threadcount", limit: 3, default: 0, null: false, unsigned: true
     t.integer "forum_lastuser", limit: 2, default: 0, null: false, unsigned: true
-    t.boolean "forum_merge", default: false, null: false, unsigned: true
+    t.boolean "forum_merge", default: false, null: false
     t.index ["forum_lastpost"], name: "forum_lastpost"
     t.index ["forum_order"], name: "forum_order"
     t.index ["forum_postcount"], name: "forum_postcount"
@@ -257,15 +257,15 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "message_subject", limit: 100, default: "", null: false
     t.text "message_message", null: false
     t.string "message_smileys", limit: 1, default: "", null: false
-    t.boolean "message_read", default: false, null: false, unsigned: true
+    t.boolean "message_read", default: false, null: false
     t.integer "message_datestamp", default: 0, null: false, unsigned: true
-    t.boolean "message_folder", default: false, null: false, unsigned: true
+    t.boolean "message_folder", default: false, null: false
     t.index ["message_datestamp"], name: "message_datestamp"
   end
 
   create_table "fusion7_messages_options", primary_key: "user_id", id: :integer, limit: 3, default: 0, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.boolean "pm_email_notify", default: false, null: false, unsigned: true
-    t.boolean "pm_save_sent", default: false, null: false, unsigned: true
+    t.boolean "pm_email_notify", default: false, null: false
+    t.boolean "pm_save_sent", default: false, null: false
     t.integer "pm_inbox", limit: 2, default: 0, null: false, unsigned: true
     t.integer "pm_savebox", limit: 2, default: 0, null: false, unsigned: true
     t.integer "pm_sentbox", limit: 2, default: 0, null: false, unsigned: true
@@ -307,10 +307,10 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "news_end", default: 0, null: false, unsigned: true
     t.integer "news_visibility", limit: 1, default: 0, null: false, unsigned: true
     t.integer "news_reads", limit: 3, default: 0, unsigned: true
-    t.boolean "news_draft", default: false, null: false, unsigned: true
-    t.boolean "news_sticky", default: false, null: false, unsigned: true
-    t.boolean "news_allow_comments", default: true, null: false, unsigned: true
-    t.boolean "news_allow_ratings", default: true, null: false, unsigned: true
+    t.boolean "news_draft", default: false, null: false
+    t.boolean "news_sticky", default: false, null: false
+    t.boolean "news_allow_comments", default: true, null: false
+    t.boolean "news_allow_ratings", default: true, null: false
     t.index ["news_datestamp"], name: "news_datestamp"
     t.index ["news_reads"], name: "news_reads"
   end
@@ -323,7 +323,7 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "fusion7_online", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "online_user", limit: 50, default: "", null: false
     t.string "online_ip", limit: 45, default: "", null: false
-    t.boolean "online_ip_type", default: true, null: false, unsigned: true
+    t.boolean "online_ip_type", default: true, null: false
     t.integer "online_lastactive", default: 0, null: false, unsigned: true
   end
 
@@ -374,7 +374,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "group_id", null: false, unsigned: true
     t.string "slot_title", limit: 150, default: "", null: false
     t.integer "user_id", unsigned: true
-    t.boolean "slot_locked", default: false, null: false, unsigned: true
+    t.boolean "slot_locked", default: false, null: false
     t.integer "slot_order", default: 0, null: false
     t.timestamp "slot_updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.index ["group_id"], name: "group_id"
@@ -392,14 +392,14 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "panel_name", limit: 100, default: "", null: false
     t.string "panel_filename", limit: 100, default: "", null: false
     t.text "panel_content", null: false
-    t.boolean "panel_side", default: true, null: false, unsigned: true
+    t.boolean "panel_side", default: true, null: false
     t.integer "panel_order", limit: 2, default: 0, null: false, unsigned: true
     t.string "panel_type", limit: 20, default: "", null: false
     t.integer "panel_access", limit: 1, default: 0, null: false, unsigned: true
-    t.boolean "panel_display", default: false, null: false, unsigned: true
-    t.boolean "panel_status", default: false, null: false, unsigned: true
+    t.boolean "panel_display", default: false, null: false
+    t.boolean "panel_status", default: false, null: false
     t.text "panel_url_list", null: false
-    t.boolean "panel_restriction", default: false, null: false, unsigned: true
+    t.boolean "panel_restriction", default: false, null: false
     t.index ["panel_order"], name: "panel_order"
   end
 
@@ -426,8 +426,8 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "photo_user", limit: 2, default: 0, null: false, unsigned: true
     t.integer "photo_views", limit: 2, default: 0, null: false, unsigned: true
     t.integer "photo_order", limit: 2, default: 0, null: false, unsigned: true
-    t.boolean "photo_allow_comments", default: true, null: false, unsigned: true
-    t.boolean "photo_allow_ratings", default: true, null: false, unsigned: true
+    t.boolean "photo_allow_comments", default: true, null: false
+    t.boolean "photo_allow_ratings", default: true, null: false
     t.index ["photo_datestamp"], name: "photo_datestamp"
     t.index ["photo_order"], name: "photo_order"
   end
@@ -458,17 +458,17 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "forum_id", limit: 3, default: 0, unsigned: true
     t.integer "thread_id", limit: 3, default: 0, unsigned: true
     t.text "post_message", null: false
-    t.boolean "post_showsig", default: false, null: false, unsigned: true
-    t.boolean "post_smileys", default: true, null: false, unsigned: true
+    t.boolean "post_showsig", default: false, null: false
+    t.boolean "post_smileys", default: true, null: false
     t.integer "post_author", limit: 2, default: 0, null: false, unsigned: true
     t.integer "post_datestamp", default: 0, null: false, unsigned: true
     t.string "post_ip", limit: 45, default: "", null: false
-    t.boolean "post_ip_type", default: true, null: false, unsigned: true
+    t.boolean "post_ip_type", default: true, null: false
     t.integer "post_edituser", limit: 2, default: 0, null: false, unsigned: true
     t.integer "post_edittime", default: 0, null: false, unsigned: true
     t.text "post_editreason", null: false
-    t.boolean "post_hidden", default: false, null: false, unsigned: true
-    t.boolean "post_locked", default: false, null: false, unsigned: true
+    t.boolean "post_hidden", default: false, null: false
+    t.boolean "post_locked", default: false, null: false
     t.index ["post_datestamp"], name: "post_datestamp"
     t.index ["post_datestamp"], name: "post_datestamp_2"
     t.index ["thread_id"], name: "thread_id"
@@ -478,10 +478,10 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "rating_item_id", limit: 3, default: 0, unsigned: true
     t.string "rating_type", limit: 1, default: "", null: false
     t.integer "rating_user", limit: 2, default: 0, null: false, unsigned: true
-    t.boolean "rating_vote", default: false, null: false, unsigned: true
+    t.boolean "rating_vote", default: false, null: false
     t.integer "rating_datestamp", default: 0, null: false, unsigned: true
     t.string "rating_ip", limit: 45, default: "", null: false
-    t.boolean "rating_ip_type", default: true, null: false, unsigned: true
+    t.boolean "rating_ip_type", default: true, null: false
   end
 
   create_table "fusion7_settings", primary_key: "settings_name", id: :string, limit: 200, default: "", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -498,8 +498,8 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "shout_message", default: "", null: false
     t.integer "shout_datestamp", default: 0, null: false, unsigned: true
     t.string "shout_ip", limit: 45, default: "", null: false
-    t.boolean "shout_ip_type", default: true, null: false, unsigned: true
-    t.boolean "shout_hidden", default: false, null: false, unsigned: true
+    t.boolean "shout_ip_type", default: true, null: false
+    t.boolean "shout_hidden", default: false, null: false
     t.index ["shout_datestamp"], name: "shout_datestamp"
   end
 
@@ -507,83 +507,83 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "link_name", limit: 100, default: "", null: false
     t.string "link_url", limit: 200, default: "", null: false
     t.integer "link_visibility", limit: 1, default: 0, null: false, unsigned: true
-    t.boolean "link_position", default: true, null: false, unsigned: true
-    t.boolean "link_window", default: false, null: false, unsigned: true
+    t.boolean "link_position", default: true, null: false
+    t.boolean "link_window", default: false, null: false
     t.integer "link_order", limit: 2, default: 0, null: false, unsigned: true
   end
 
   create_table "fusion7_sitemapxml", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "update_interval", limit: 3, default: 86400, null: false, unsigned: true
     t.string "site_url", limit: 200, default: "", null: false
-    t.boolean "news_enabled", default: true, null: false, unsigned: true
-    t.boolean "news_changefreq", default: false, null: false, unsigned: true
+    t.boolean "news_enabled", default: true, null: false
+    t.boolean "news_changefreq", default: false, null: false
     t.string "news_priority", limit: 3, default: "0.6", null: false
-    t.boolean "newscats_enabled", default: true, null: false, unsigned: true
-    t.boolean "newscats_changefreq", default: true, null: false, unsigned: true
+    t.boolean "newscats_enabled", default: true, null: false
+    t.boolean "newscats_changefreq", default: true, null: false
     t.string "newscats_priority", limit: 3, default: "0.2", null: false
-    t.boolean "articlecats_enabled", default: true, null: false, unsigned: true
-    t.boolean "articlecats_changefreq", default: false, null: false, unsigned: true
+    t.boolean "articlecats_enabled", default: true, null: false
+    t.boolean "articlecats_changefreq", default: false, null: false
     t.string "articlecats_priority", limit: 3, default: "0.2", null: false
-    t.boolean "articles_enabled", default: true, null: false, unsigned: true
-    t.boolean "articles_changefreq", default: true, null: false, unsigned: true
+    t.boolean "articles_enabled", default: true, null: false
+    t.boolean "articles_changefreq", default: true, null: false
     t.string "articles_priority", limit: 3, default: "0.5", null: false
-    t.boolean "profiles_enabled", default: true, null: false, unsigned: true
-    t.boolean "profiles_changefreq", default: true, null: false, unsigned: true
+    t.boolean "profiles_enabled", default: true, null: false
+    t.boolean "profiles_changefreq", default: true, null: false
     t.string "profiles_priority", limit: 3, default: "0.1", null: false
-    t.boolean "photoalbums_enabled", default: true, null: false, unsigned: true
-    t.boolean "photoalbums_changefreq", default: false, null: false, unsigned: true
+    t.boolean "photoalbums_enabled", default: true, null: false
+    t.boolean "photoalbums_changefreq", default: false, null: false
     t.string "photoalbums_priority", limit: 3, default: "0.2", null: false
-    t.boolean "photos_enabled", default: true, null: false, unsigned: true
-    t.boolean "photos_changefreq", default: false, null: false, unsigned: true
+    t.boolean "photos_enabled", default: true, null: false
+    t.boolean "photos_changefreq", default: false, null: false
     t.string "photos_priority", limit: 3, default: "0.3", null: false
-    t.boolean "custompages_enabled", default: true, null: false, unsigned: true
-    t.boolean "custompages_changefreq", default: true, null: false, unsigned: true
+    t.boolean "custompages_enabled", default: true, null: false
+    t.boolean "custompages_changefreq", default: true, null: false
     t.string "custompages_priority", limit: 3, default: "0.3", null: false
-    t.boolean "faqcats_enabled", default: true, null: false, unsigned: true
-    t.boolean "faqcats_changefreq", default: true, null: false, unsigned: true
+    t.boolean "faqcats_enabled", default: true, null: false
+    t.boolean "faqcats_changefreq", default: true, null: false
     t.string "faqcats_priority", limit: 3, default: "0.3", null: false
-    t.boolean "downloadcats_enabled", default: true, null: false, unsigned: true
-    t.boolean "downloadcats_changefreq", default: true, null: false, unsigned: true
+    t.boolean "downloadcats_enabled", default: true, null: false
+    t.boolean "downloadcats_changefreq", default: true, null: false
     t.string "downloadcats_priority", limit: 3, default: "0.3", null: false
-    t.boolean "downloads_enabled", default: true, null: false, unsigned: true
-    t.boolean "downloads_changefreq", default: true, null: false, unsigned: true
+    t.boolean "downloads_enabled", default: true, null: false
+    t.boolean "downloads_changefreq", default: true, null: false
     t.string "downloads_priority", limit: 3, default: "0.4", null: false
-    t.boolean "weblinkcats_enabled", default: true, null: false, unsigned: true
-    t.boolean "weblinkcats_changefreq", default: true, null: false, unsigned: true
+    t.boolean "weblinkcats_enabled", default: true, null: false
+    t.boolean "weblinkcats_changefreq", default: true, null: false
     t.string "weblinkcats_priority", limit: 3, default: "0.3", null: false
-    t.boolean "forums_enabled", default: true, null: false, unsigned: true
-    t.boolean "forums_changefreq", default: true, null: false, unsigned: true
+    t.boolean "forums_enabled", default: true, null: false
+    t.boolean "forums_changefreq", default: true, null: false
     t.string "forums_priority", limit: 3, default: "0.4", null: false
-    t.boolean "threads_enabled", default: true, null: false, unsigned: true
-    t.boolean "threads_changefreq", default: false, null: false, unsigned: true
+    t.boolean "threads_enabled", default: true, null: false
+    t.boolean "threads_changefreq", default: false, null: false
     t.string "threads_priority", limit: 3, default: "0.6", null: false
     t.integer "threads_limit", limit: 3, default: 0, null: false, unsigned: true
-    t.boolean "kroaxcats_enabled", default: false, null: false, unsigned: true
-    t.boolean "kroaxcats_changefreq", default: false, null: false, unsigned: true
+    t.boolean "kroaxcats_enabled", default: false, null: false
+    t.boolean "kroaxcats_changefreq", default: false, null: false
     t.string "kroaxcats_priority", limit: 3, default: "0.1", null: false
-    t.boolean "kroaxvideos_enabled", default: false, null: false, unsigned: true
-    t.boolean "kroaxvideos_changefreq", default: false, null: false, unsigned: true
+    t.boolean "kroaxvideos_enabled", default: false, null: false
+    t.boolean "kroaxvideos_changefreq", default: false, null: false
     t.string "kroaxvideos_priority", limit: 3, default: "0.3", null: false
-    t.boolean "varcadecats_enabled", default: false, null: false, unsigned: true
-    t.boolean "varcadecats_changefreq", default: true, null: false, unsigned: true
+    t.boolean "varcadecats_enabled", default: false, null: false
+    t.boolean "varcadecats_changefreq", default: true, null: false
     t.string "varcadecats_priority", limit: 3, default: "0.3", null: false
-    t.boolean "varcadegames_enabled", default: false, null: false, unsigned: true
-    t.boolean "varcadegames_changefreq", default: true, null: false, unsigned: true
+    t.boolean "varcadegames_enabled", default: false, null: false
+    t.boolean "varcadegames_changefreq", default: true, null: false
     t.string "varcadegames_priority", limit: 3, default: "0.3", null: false
-    t.boolean "pdpcats_enabled", default: false, null: false, unsigned: true
-    t.boolean "pdpcats_changefreq", default: true, null: false, unsigned: true
+    t.boolean "pdpcats_enabled", default: false, null: false
+    t.boolean "pdpcats_changefreq", default: true, null: false
     t.string "pdpcats_priority", limit: 3, default: "0.2", null: false
-    t.boolean "pdpdownloads_enabled", default: false, null: false, unsigned: true
-    t.boolean "pdpdownloads_changefreq", default: true, null: false, unsigned: true
+    t.boolean "pdpdownloads_enabled", default: false, null: false
+    t.boolean "pdpdownloads_changefreq", default: true, null: false
     t.string "pdpdownloads_priority", limit: 3, default: "0.3", null: false
-    t.boolean "tiblogsystem_enabled", default: false, null: false, unsigned: true
-    t.boolean "tiblogsystem_changefreq", default: true, null: false, unsigned: true
+    t.boolean "tiblogsystem_enabled", default: false, null: false
+    t.boolean "tiblogsystem_changefreq", default: true, null: false
     t.string "tiblogsystem_priority", limit: 3, default: "0.3", null: false
   end
 
   create_table "fusion7_sitemapxml_customlinks", primary_key: "link_id", id: :integer, limit: 3, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.text "link_url", null: false
-    t.boolean "link_frequency", default: true, null: false, unsigned: true
+    t.boolean "link_frequency", default: true, null: false
     t.string "link_priority", limit: 3, default: "0.4", null: false
   end
 
@@ -604,7 +604,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "suspended_user", limit: 3, null: false, unsigned: true
     t.integer "suspending_admin", limit: 3, default: 1, null: false, unsigned: true
     t.string "suspend_ip", limit: 45, default: "", null: false
-    t.boolean "suspend_ip_type", default: true, null: false, unsigned: true
+    t.boolean "suspend_ip_type", default: true, null: false
     t.integer "suspend_date", default: 0, null: false
     t.text "suspend_reason", null: false
     t.boolean "suspend_type", default: false, null: false
@@ -612,14 +612,14 @@ ActiveRecord::Schema.define(version: 0) do
     t.text "reinstate_reason", null: false
     t.integer "reinstate_date", default: 0, null: false
     t.string "reinstate_ip", limit: 45, default: "", null: false
-    t.boolean "reinstate_ip_type", default: true, null: false, unsigned: true
+    t.boolean "reinstate_ip_type", default: true, null: false
   end
 
   create_table "fusion7_thread_notify", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "thread_id", limit: 3, default: 0, unsigned: true
     t.integer "notify_datestamp", default: 0, null: false, unsigned: true
     t.integer "notify_user", limit: 3, default: 0, unsigned: true
-    t.boolean "notify_status", default: true, null: false, unsigned: true
+    t.boolean "notify_status", default: true, null: false
     t.index ["notify_datestamp"], name: "notify_datestamp"
   end
 
@@ -632,10 +632,10 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "thread_lastpostid", limit: 3, default: 0, null: false, unsigned: true
     t.integer "thread_postcount", limit: 2, default: 0, null: false, unsigned: true
     t.integer "thread_lastuser", limit: 2, default: 0, null: false, unsigned: true
-    t.boolean "thread_poll", default: false, null: false, unsigned: true
-    t.boolean "thread_sticky", default: false, null: false, unsigned: true
-    t.boolean "thread_locked", default: false, null: false, unsigned: true
-    t.boolean "thread_hidden", default: false, null: false, unsigned: true
+    t.boolean "thread_poll", default: false, null: false
+    t.boolean "thread_sticky", default: false, null: false
+    t.boolean "thread_locked", default: false, null: false
+    t.boolean "thread_hidden", default: false, null: false
     t.index ["thread_lastpost"], name: "thread_lastpost"
     t.index ["thread_postcount"], name: "thread_postcount"
     t.index ["thread_views"], name: "thread_views"
@@ -649,9 +649,9 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "fusion7_user_fields", primary_key: "field_id", id: :integer, limit: 3, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "field_name", limit: 50, default: "", null: false
     t.integer "field_cat", limit: 3, default: 1, unsigned: true
-    t.boolean "field_required", default: false, null: false, unsigned: true
-    t.boolean "field_log", default: false, null: false, unsigned: true
-    t.boolean "field_registration", default: false, null: false, unsigned: true
+    t.boolean "field_required", default: false, null: false
+    t.boolean "field_log", default: false, null: false
+    t.boolean "field_registration", default: false, null: false
     t.integer "field_order", limit: 2, default: 0, null: false, unsigned: true
     t.index ["field_order"], name: "field_order"
   end
@@ -680,7 +680,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "user_admin_salt", limit: 40, null: false
     t.string "user_admin_password", limit: 64, null: false
     t.string "user_email", limit: 100, default: "", null: false
-    t.boolean "user_hide_email", default: true, null: false, unsigned: true
+    t.boolean "user_hide_email", default: true, null: false
     t.string "user_location", limit: 50, default: "", null: false
     t.date "user_birthdate", null: false
     t.string "user_aim", limit: 16, default: "", null: false
@@ -697,11 +697,11 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "user_joined", default: 0, null: false, unsigned: true
     t.integer "user_lastvisit", default: 0, null: false, unsigned: true
     t.string "user_ip", limit: 45, default: "0.0.0.0", null: false
-    t.boolean "user_ip_type", default: true, null: false, unsigned: true
+    t.boolean "user_ip_type", default: true, null: false
     t.text "user_rights", null: false
     t.text "user_groups", null: false
     t.integer "user_level", limit: 1, default: 101, null: false, unsigned: true
-    t.boolean "user_status", default: false, null: false, unsigned: true
+    t.boolean "user_status", default: false, null: false
     t.integer "user_actiontime", default: 0, null: false, unsigned: true
     t.string "user_arma2_id", limit: 20, default: "", null: false
     t.string "user_arma2_nick", limit: 50, default: "", null: false
